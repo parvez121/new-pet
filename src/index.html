@@ -5,1135 +5,353 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-  <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-   
-     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-   
 
- </head>
-    <body class="bg-gray-100 m-0 p-0 overflow-x-hidden">
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Navbar -->
-  <nav class="bg-white shadow-md sticky top-0 z-50 transition duration-300">
+  <!-- Slick CSS -->
+  <link 
+    rel="stylesheet" 
+    type="text/css" 
+    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+  <!-- Slick Theme (optional) -->
+  <link 
+    rel="stylesheet" 
+    type="text/css" 
+    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <!-- Font Awesome CDN (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+     <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-white shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
+      <div class="flex justify-between items-center h-16">
         
-        <!-- Left: Logo -->
-        <div class="flex items-center">
-          <div class="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-paw text-white text-xl"></i>
-                        </div>
-                       <a href="#" class="ml-3 text-2xl font-bold">Pet Care</a>
+        <!-- Brand -->
+        <div class="flex-shrink-0 text-2xl font-bold text-[#f2b46d]">
+          Pet House
         </div>
 
-        <!-- Center: Menu Items (Desktop) -->
-        <div class="hidden md:flex items-center space-x-6 font-semibold">
-          <a href="#" class="relative text-gray-700 hover:text-amber-600 transition duration-300 
-            after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-amber-600 
-            after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">Home</a>
-
-          <a href="#service" class="relative text-gray-700 hover:text-amber-600 transition duration-300 
-            after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-amber-600 
-            after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">Services</a>
-
-          <a href="#about" class="relative text-gray-700 hover:text-amber-600 transition duration-300 
-            after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-amber-600 
-            after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">About Us</a>
-
-          <a href="#pricing" class="relative text-gray-700 hover:text-amber-600 transition duration-300 
-            after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-amber-600 
-            after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">Pricing</a>
-
-          <a href="#booking" class="relative text-gray-700 hover:text-amber-600 transition duration-300 
-            after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-amber-600 
-            after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">Booking</a>
-
-          <a href="#contact" class="relative text-gray-700 hover:text-amber-600 transition duration-300 
-            after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-amber-600 
-            after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">Contact Us</a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 text-gray-700 font-medium">
+          <a href="#" class="hover:text-[#f2b46d]">Home</a>
+          <a href="#about" class="hover:text-[#f2b46d]">About Us</a>
+          <a href="#service" class="hover:text-[#f2b46d]">Services</a>
+          <a href="#review" class="hover:text-[#f2b46d]">Review</a>
+          <a href="#contact" class="hover:text-[#f2b46d]">Contact</a>
         </div>
 
-        
-          <!-- Mobile Hamburger -->
-          <div class="md:hidden items-center flex">
-            <button id="menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
-              <svg xmlns="http://www.w3.org/2000/svg" 
-                   class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  d="M4 6h16M4 12h16M4 18h16"/>
-              </svg>
-            </button>
-          </div>
-        
+        <!-- Mobile Button -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-gray-700 hover:text-[#f2b46d] focus:outline-none focus:ring-2 focus:ring-yellow-600">
+            <!-- Hamburger Icon -->
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" 
-         class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-4 space-y-2 bg-white shadow">
-      <a href="#" class="block text-gray-700 hover:text-indigo-600 transition duration-300">Home</a>
-      <a href="#service" class="block text-gray-700 hover:text-indigo-600 transition duration-300">Services</a>
-      <a href="#about" class="block text-gray-700 hover:text-indigo-600 transition duration-300">About Us</a>
-      <a href="#pricing" class="block text-gray-700 hover:text-indigo-600 transition duration-300">Pricing</a>
-      <a href="#booking" class="block text-gray-700 hover:text-indigo-600 transition duration-300">Booking</a>
-      <a href="#contact" class="block text-gray-700 hover:text-indigo-600 transition duration-300">Contact Us</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <div class="px-4 pt-2 pb-3 space-y-1 text-gray-700 font-medium">
+        <a href="#" class="block hover:text-[#f2b46d]">Home</a>
+        <a href="#about" class="block hover:text-[#f2b46d]">About Us</a>
+        <a href="#service" class="block hover:text-[#f2b46d]">Services</a>
+        <a href="#review" class="block hover:text-[#f2b46d]">Review</a>
+        <a href="#contact" class="block hover:text-[#f2b46d]">Contact</a>
+      </div>
     </div>
   </nav>
 
 
-<!-- Second Section -->
-<section class=" min-h-[80vh] md:min-h-screen lg:min-h-screen scroll-mt-16 flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 gap-8 mt-8 mb-5">
-  
-  <!-- Left Content -->
-  <div class="flex-1 text-center md:text-left">
-    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-      <span class="text-amber-400">Welcome to</span> Our Service
-    </h1>
-    <p class="mt-10 text-gray-600 text-lg">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatibus, odit nostrum fugit ut dolores tempore nesciunt minima itaque repellendus expedita rem sed, perferendis amet dolorum qui libero quidem cum quos delectus soluta! Dolorem doloremque fuga voluptas hic sequi tempore ea, nemo earum libero architecto aliquid, veniam ab nisi cumque.
-    </p>
-    <button class="mt-10 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md 
-                   hover:bg-indigo-700 transition duration-300 cursor-pointer">
-      Get Started
-    </button>
-  </div>
+   <!-- Home section -->
 
-  <!-- Right Image -->
-  <div class="flex-1 flex justify-center">
-    <img src="img/dogs.png" alt="Service Image" class="rounded-xl">
-  </div>
-</section>
-
-
- <!-- service slider section-->
-    <section class=" pt-4 bg-gradient-to-br from-green-50 to-blue-5 min-h-[90vh] md:min-h-screen lg:min-h-screen scroll-mt-16 mt-19 " id="service">
-        <div class="container mx-auto px-4 ">
-            <!-- section header-->
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4 underline  underline-offset-8">Our <span class="text-amber-400">Services</span></h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">We Provide Best Services For Your Pet's</p>
-            </div>
-
-            <!-- Swiper slider -->
-            <div class="swiper service-swiper">
-                <div class="swiper-wrapper">
-                    <!-- slider 1 -->
-                    <div class="swiper-slide ">
-                        <div class="service-card overflow-hidden max-w-sm mx-auto">
-                            <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-600 relative overflow-hidden">
-                                <div class="absolute"><img src="img/hygenic.jpg" alt=""></div>
-                                <div class="absolute bottom-4 left-6">
-                                    <div class="w-12 h-11 bg-white rounded-lg flex items-center justify-center">
-                                        <img src="icon/veterinary-care-svgrepo-com.svg" alt="" class="p-1">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-3">Vaterinary</h3>
-                                <p class="text-gray-600 mb-4 leading-relaxed">
-                                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate a tempore sunt tenetur dolores.
-                                </p>
-                                <ul class="text-gray-600 space-y-2 mb-6">
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Regular Health Chekup
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Vaccination
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Emergency Care
-                                    </li>
-                                </ul>
-                                <button class="w-full bg-amber-400 text-white py-3 rounded-lg font-semibold hover:bg-amber-500 transition">
-                                    Read More
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- slide 2 -->
-                    <div class="swiper-slide">
-                        <div class="service-card overflow-hidden max-w-sm mx-auto">
-                            <div class="h-48 bg-gradient-to-r from-green-500 to-green-600 relative overflow-hidden">
-                                <div class="absolute">
-                                    <img src="img/pet grooming.jpg" alt="">
-                                </div>
-                                <div class="absolute bottom-4 left-6">
-                                    <div class="w-12 h-11 bg-white rounded-lg flex items-center justify-center">
-                                        <img src="icon/grooming-comb-svgrepo-com.svg" alt="" class="p-1">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-3">Pet Grooming</h3>
-                                <p class="text-gray-600 mb-4 leading-relaxed">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, sint. Culpa architecto officia doloremque!
-                                </p>
-                                <ul class="text-gray-600 space-y-2 mb-6">
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Hair Cutting and styling
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Bath and fresh
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Nail cliping and cleaning
-                                    </li>
-                                </ul>
-                                <button class="w-full bg-amber-400 text-white py-3 rounded-lg font-semibold hover:bg-amber-500 transition">
-                                    Read More
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- slide 3 -->
-                    <div class="swiper-slide">
-                        <div class="service-card overflow-hidden max-w-sm mx-auto">
-                            <div class="h-48 bg-gradient-to-r from-purple-500 to-purple-600 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-black bg-opacity-20"> 
-                                    <img src="img/emergency.png" alt="">
-                                </div>
-                                <div class="absolute bottom-4 left-6">
-                                    <div class="w-12 h-11 bg-white rounded-lg flex items-center justify-center">
-                                        <img src="icon/training-class-svgrepo-com.svg" alt="" class="p-1">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-3">Pet Training</h3>
-                                <p class="text-gray-600 mb-4 leading-relaxed">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur dolorum iusto nulla exercitationem dolorem!
-                                </p>
-                                <ul class="text-gray-600 space-y-2 mb-6">
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Basic Training
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Behavior Modification 
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Party Training
-                                    </li>
-                                </ul>
-                                <button class="w-full bg-amber-400 text-white py-3 rounded-lg font-semibold hover:bg-amber-500 transition">
-                                    Read More
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- slide 4-->
-                    <div class="swiper-slide">
-                        <div class="service-card overflow-hidden max-w-sm mx-auto">
-                            <div class="h-48 bg-gradient-to-r from-yellow-500 to-yellow-600 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-black bg-opacity-20">
-                                    <img src="img/pet boarding.jpg" alt="">
-                                </div>
-                                <div class="absolute bottom-4 left-6">
-                                    <div class="w-12 h-11 bg-white rounded-lg flex items-center justify-center">
-                                       <img src="icon/pet-hotel-sign-of-a-bone-in-a-dog-house-svgrepo-com.svg" alt="" class="p-1">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-3">Pet Boarding</h3>
-                                <p class="text-gray-600 mb-4 leading-relaxed">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga vero impedit dicta. Nihil, dolorum.
-                                </p>
-                                <ul class="text-gray-600 space-y-2 mb-6">
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        24/7 Super vission
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        AC Room
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Regular exercise
-                                    </li>
-                                </ul>
-                                <button class="w-full bg-amber-400 text-white py-3 rounded-lg font-semibold hover:bg-amber-500 transition">
-                                    Read More
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- slide 5 -->
-                    <div class="swiper-slide">
-                        <div class="service-card overflow-hidden max-w-sm mx-auto">
-                            <div class="h-48 bg-gradient-to-r from-red-500 to-red-600 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-black bg-opacity-20">
-                                    <img src="img/pet food.jpg" alt="">
-                                </div>
-                                <div class="absolute bottom-4 left-6">
-                                    <div class="w-12 h-11 bg-white rounded-lg flex items-center justify-center">
-                                        <img src="icon/pet-food-svgrepo-com.svg" alt="" class="p-1">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-3">Pet Food</h3>
-                                <p class="text-gray-600 mb-4 leading-relaxed">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam distinctio eos ab? Cum, adipisci.
-                                </p>
-                                <ul class="text-gray-600 space-y-2 mb-6">
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                       Organic Food
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Daet Consultaion
-                                    </li>
-                                    <li class="flex items-center">
-                                        <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        Home Delevery
-                                    </li>
-                                </ul>
-                                <button class="w-full bg-amber-400 text-white py-3 rounded-lg font-semibold hover:bg-amber-500 transition">
-                                    Read More
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="flex flex-col sm:flex-row gap-3 justify-between mx-auto container mt-5 w-full px-4 bg-teal-100">
+        <div class="flex-col space-y-5 content-center ">
+            <h1 class="text-6xl font-bold">Saving animal <br> changing life</h1>
+            <p class=" text-[18px] text-gray-700">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea earum doloremque <br> dicta explicabo, voluptas facere. Veniam ipsa laudantium harum omnis.</p>
+            <button class="bg-yellow-400 px-7 py-3 rounded-3xl text-[14px] text-white hover:bg-[#f2b46d] transition-colors">Booking</button>
         </div>
-    </section>
+        <div>
+            <img class="sm:w-[500px] sm:h-[500px]" src="img/dogs.png" alt="img">
+        </div>
+    </div>
 
 
+ <!-- services section -->
 
-
-<!-- About Section -->
-<section id="about" class="scroll-mt-12 min-h-[80vh] md:min-h-screen flex flex-col justify-center px-4 md:px-12 lg:px-20 py-8 md:py-12 lg:py-16">
-  
-  <!-- Title -->
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold text-gray-800 underline underline-offset-8">
-      <span class="text-amber-400">About</span> Us
-    </h1>
+<div id="service">
+    <div class="flex justify-center items-center mt-5">
+  <h1 class="text-center font-extrabold text-3xl">Our Pet Care Services</h1>
+</div>
+    <div class="slider w-full max-w-6xl mx-auto mt-10">
+    <div class="relative">
+         <img src="img/hygenic.jpg" class="rounded-xl shadow-lg px-1"/>
+        <div class="bg-gray-200 w-[50%] h-[120px]  left-[6rem] absolute bottom-0 px-5">
+            <h1 class="font-bold text-xl">Hygienic care</h1>
+            <p class=" text-black text-[13px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum.</p>
+        </div>
+    </div>
+    <div class="relative">
+         <img src="img/treatment.jpg" class="rounded-xl shadow-lg px-1"/>
+        <div class="bg-gray-200 w-[50%] h-[120px]  left-[6rem] absolute bottom-0 px-5">
+            <h1 class="font-bold text-xl">Pet Treatment</h1>
+            <p class=" text-black text-[13px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum.</p>
+        </div>
+    </div>
+    <div class="relative">
+         <img src="img/care.jpg" class="rounded-xl shadow-lg px-1"/>
+        <div class="bg-gray-200 w-[50%] h-[120px]  left-[6rem] absolute bottom-0 px-5">
+            <h1 class="font-bold text-xl">Pet Traning</h1>
+            <p class=" text-black text-[13px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum.</p>
+        </div>
+    </div>
+    <div class="relative">
+         <img src="img/hygenic.jpg" class="rounded-xl shadow-lg px-1"/>
+        <div class="bg-gray-200 w-[50%] h-[120px]  left-[6rem] absolute bottom-0 px-5">
+            <h1 class="font-bold text-xl">Pet Grooming</h1>
+            <p class=" text-black text-[13px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum.</p>
+        </div>
+    </div>
+    <div class="relative">
+         <img src="img/treatment.jpg" class="rounded-xl shadow-lg px-1"/>
+        <div class="bg-gray-200 w-[50%] h-[120px]  left-[6rem] absolute bottom-0 px-5">
+            <h1 class="font-bold text-xl">Pet Treatment</h1>
+            <p class=" text-black text-[13px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum.</p>
+        </div>
+    </div>
   </div>
+</div>
 
-  <!-- Content -->
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+ <!-- about us -->
+
+   <div> 
+    <div class="flex justify-center items-center mt-8">
+  <h1 class="text-center font-extrabold text-3xl">About Us</h1>
+</div>
+<div id="about" class="flex flex-col sm:flex-row sm:justify-between container mx-auto sm:px-[4rem] px-2 sm:space-x-10 mt-10">
+    <div>
+        <img class="w-[400px] h-[200px] sm:w-[700px] sm:h-[400px] rounded-2xl" src="img/treatment.jpg" alt="">
+    </div>
+    <div class="w-[300px] sm:w-[700px] sm:h-[500px] lg:h-[400px] space-y-4 mt-8 mx-auto left-0">
+       <h1 class="sm:font-extrabold sm:text-5xl ">Animals has come to mean so muchin t live</h1>
+       <p class="font-extralight ">Far far away, behind the word mountains, far from the countries vokalia.</p>
+       <p class="font-normal">Mollit anim laborum.Dvcuis aute serunt iruxvfg dhjkolo indd re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur sfwsignjnt occa cupidatat non more than aute.</p>
+       <button class="bg-yellow-400 px-7 py-3 rounded-3xl text-[14px] text-white hover:bg-[#f2b46d] transition-colors">Learn More About us</button>
+    </div>
+</div>
+</div>
+
+ <!-- contact -->
+
+<div id="contact">
+  <div  style="background-image: url('img/emergency.png'); height: 500px" class="bg-no-repeat bg-cover container  mt-5 mx-auto relative">
+    <div class="absolute bottom-[8rem] bg-white space-y-2 sm:left-3 left-[6px] p-8 rounded-2xl">
+      <img src="img/phone.png" alt="" class="w-[30px]">
+      <h1 class="font-extrabold text-xl">For Emergency Care Just Call Us </h1>
+      <p class="font-medium">Mon – Fri (9.00-6.00)</p>
+      <p class="font-medium">Sat – Sun (2.30-7.00)</p>
+      <button class="bg-pink-500 px-7 py-3 rounded-3xl text-[18px] text-white hover:bg-purple-600 transition-colors">+880 123456789</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+ <!-- Review Slider -->
+
+<div id="review">
+    <div class="flex justify-center items-center mt-5">
+  <h1 class="text-center font-extrabold text-3xl">Customer Review</h1>
+</div>
+
+  <div class="review-slider w-full max-w-6xl mx-auto py-10">
     
-    <!-- Left Image -->
-    <div class="flex justify-center md:justify-start">
-      <img 
-        src="img/hygenic.jpg" 
-        alt="Pet Care" 
-        class="rounded-2xl shadow-xl w-full md:w-[90%] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] object-cover transition-transform duration-700 hover:scale-105"
-      >
+    <!-- Review 1 -->
+    <div class="p-6">
+      <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+        <img src="img/rivew1.png" class="w-16 h-16 mx-auto rounded-full mb-4"/>
+        <p class="text-gray-600 italic">"Amazing service! delivered on time. Highly recommended!"</p>
+        <h3 class="mt-3 font-semibold text-lg text-gray-800">Rahim Uddin</h3>
+      </div>
     </div>
 
-    <!-- Right Text -->
-    <div class="flex flex-col justify-center text-center md:text-left animate-fadeIn">
-      <div>
-        <p class="text-sm uppercase tracking-wide text-gray-500">About Us</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-2">
-          We are the Best for <span class="text-orange-500">Your Pet Care</span>
-        </h2>
-        <p class="text-gray-600 mt-4 leading-relaxed">
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, reprehenderit, aut, repellat molestias corrupti quos mollitia quam nihil labore quas sit laborum dolorum quae numquam neque asperiores a accusantium! Libero illo quaerat fugiat velit reprehenderit ipsam, at temporibus sapiente laboriosam accusantium natus provident sed, nostrum inventore porro asperiores, quo laudantium tempora! Mollitia reprehenderit distinctio impedit accusamus beatae nesciunt optio iure. Laboriosam, praesentium? Cupiditate facilis at dolores blanditiis error laudantium doloribus? Ipsam pariatur dolor suscipit labore deserunt voluptates. Rem aliquid repellendus vitae fugiat consequuntur nobis autem ducimus illo accusamus, velit ipsam placeat molestias quam voluptates sed unde atque quasi culpa? Provident?
-        </p>
+    <!-- Review 2 -->
+    <div class="p-6">
+      <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+        <img src="img/rivew3.png" class="w-16 h-16 mx-auto rounded-full mb-4"/>
+        <p class="text-gray-600 italic">"One of the best online shopping experiences. The quality was top notch."</p>
+        <h3 class="mt-3 font-semibold text-lg text-gray-800">Anika Chowdhury</h3>
       </div>
-      <div class="mt-8">
-        <button class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition duration-300">
-          Read More
-        </button>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="p-6">
+      <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+        <img src="img/rivew2.png" class="w-16 h-16 mx-auto rounded-full mb-4"/>
+        <p class="text-gray-600 italic">"Very nice dogs 😍 Will definitely order again."</p>
+        <h3 class="mt-3 font-semibold text-lg text-gray-800">Sakib Hasan</h3>
+      </div>
+    </div>
+
+    <!-- Review 4 -->
+    <div class="p-6">
+      <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+        <img src="img/rivew4.png" class="w-16 h-16 mx-auto rounded-full mb-4"/>
+        <p class="text-gray-600 italic">"Fast delivery and the packaging was excellent. Love it!"</p>
+        <h3 class="mt-3 font-semibold text-lg text-gray-800">Mitu Akter</h3>
       </div>
     </div>
 
   </div>
-</section>
+</div>
 
 
 
 
+<footer class="bg-gray-900 text-gray-300 py-10">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
- <!-- Package planning section -->
-<section class="px-4 py-12 md:py-16 lg:py-20 bg-gray-50 min-h-[80vh] md:min-h-screen flex items-center scroll-mt-12" id="pricing">
-  <div class="container mx-auto w-full">
-
-    <!-- Header -->
-    <div class="text-center mb-12">
-      <h2 class="sm:text-4xl text-3xl font-bold text-gray-800 mb-4 underline underline-offset-[15px]">
-        Our Pack<span class="text-amber-400">age Planning</span>
-      </h2>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Select the package that suits your pet's needs.
-      </p>
+    <!-- Brand -->
+    <div>
+      <h2 class="text-2xl font-bold text-white mb-4">Pet House</h2>
+      <p class="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptates minima odit molestiae, cumque dicta sed nemo earum quae obcaecati?</p>
     </div>
 
-    <!-- Package Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
-      
-      <!-- Friendly Package -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2">
-        <div class="bg-green-500 text-white py-6 text-center">
-          <h3 class="text-2xl font-bold">Friendly Package</h3>
-          <div class="mt-4">
-            <span class="text-4xl font-bold">$30</span>
-            <span class="text-green-100">/Month</span>
-          </div>
-        </div>
-        <div class="p-6">
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-3"></i>Weakly Health Checkup</li>
-            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-3"></i>Basic Grooming Service</li>
-            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-3"></i>General vaccination</li>
-            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-3"></i>Telephone consultation</li>
-            <li class="flex items-start text-gray-400"><i class="fas fa-times mt-1 mr-3"></i>Emergency service 24/7</li>
-            <li class="flex items-start text-gray-400"><i class="fas fa-times mt-1 mr-3"></i>Specialized training</li>
-          </ul>
-          <a href="#booking" class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-300">
-            Select Package
-          </a>
-        </div>
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-[#f2b46d]">Home</a></li>
+        <li><a href="#" class="hover:text-[#f2b46d]">About us</a></li>
+        <li><a href="#" class="hover:text-[#f2b46d]">Services</a></li>
+        <li><a href="#" class="hover:text-[#f2b46d]">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Customer Support -->
+    <div>
+      <h3 class="text-lg font-semibold text-white mb-4">Customer Support</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-[#f2b46d]">FAQ</a></li>
+        <li><a href="#" class="hover:text-[#f2b46d]">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-[#f2b46d]">Terms & Conditions</a></li>
+        <li><a href="#" class="hover:text-[#f2b46d]">Return Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h3 class="text-lg font-semibold text-white mb-4">Contact</h3>
+      <p class="text-gray-400">📍 Rajshahi, Bangladesh</p>
+      <p class="text-gray-400">📞 +880 1234-567890</p>
+      <p class="text-gray-400">✉ support@pethouse.com</p>
+      <div class="flex space-x-4 mt-4">
+        <a href="#" class="text-gray-400 hover:text-[#f2b46d]"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#" class="text-gray-400 hover:text-[#f2b46d]"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#" class="text-gray-400 hover:text-[#f2b46d]"><i class="fab fa-twitter fa-lg"></i></a>
       </div>
-
-      <!-- Family Package -->
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 border-2 border-amber-400 relative">
-        <div class="absolute top-0 right-0 bg-amber-500 text-white px-4 py-1 rounded-bl-lg text-sm font-semibold">
-          Popular
-        </div>
-        <div class="bg-amber-400 text-white py-6 text-center">
-          <h3 class="text-2xl font-bold">Family Package</h3>
-          <div class="mt-4">
-            <span class="text-4xl font-bold">$50</span>
-            <span class="text-blue-100">/Month</span>
-          </div>
-        </div>
-        <div class="p-6">
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i>Weakly Health Checkup</li>
-            <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i>Full Grooming Service</li>
-            <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i>All necessary vaccinations</li>
-            <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i>Video Consultation</li>
-            <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i>Emergency services 12/7</li>
-            <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i>Basic Behavior Training</li>
-          </ul>
-          <a href="#booking" class="block text-center bg-amber-400 hover:bg-amber-500 text-white py-3 rounded-lg font-semibold transition duration-300">
-            Select Package
-          </a>
-        </div>
-      </div>
-
-      <!-- Exclusive Package -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2">
-        <div class="bg-purple-600 text-white py-6 text-center">
-          <h3 class="text-2xl font-bold">Exclusive Package</h3>
-          <div class="mt-4">
-            <span class="text-4xl font-bold">$80</span>
-            <span class="text-purple-100">/Month</span>
-          </div>
-        </div>
-        <div class="p-6">
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-3"></i>Daily health monitoring</li>
-            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-3"></i>Premium Grooming Service</li>
-            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-3"></i>All vaccines + special vaccines</li>
-            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-3"></i>Home visit service</li>
-            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-3"></i>Emergency service 24/7</li>
-            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-3"></i>Advanced Training Program</li>
-          </ul>
-          <a href="#booking" class="block text-center bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold transition duration-300">
-            Select Package
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-  
-
-
-
-    <!-- Booking Section -->
-<section class="mt-20 pt-8 px-4 md:px-12 lg:px-20 bg-gray-100 min-h-[80vh] md:min-h-screen scroll-mt-16" id="booking">
-  <div class="text-center mb-10">
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
-      Booking your <span class="text-amber-400">Appointment</span>
-    </h2>
-  </div>
-
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-
-    <!-- Left Form -->
-    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-xl w-full">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">
-        Book an Appointment
-      </h2>
-      <form id="bookingForm" class="space-y-4">
-
-        <div>
-          <label class="block text-gray-700 mb-1">Full Name</label>
-          <input type="text" placeholder="Enter your name" 
-                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
-        </div>
-
-        <div>
-          <label class="block text-gray-700 mb-1">Phone Number</label>
-          <input type="tel" placeholder="Enter your phone number" 
-                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
-        </div>
-
-        <div>
-          <label class="block text-gray-700 mb-1">Preferred Date</label>
-          <input type="date" 
-                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
-        </div>
-
-        <div>
-          <label class="block text-gray-700 mb-1">Email Address</label>
-          <input type="email" placeholder="Enter your email" 
-                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
-        </div>
-
-        <div>
-          <label class="block text-gray-700 mb-1">Select Service</label>
-          <select class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
-            <option value="">-- Choose a Service --</option>
-            <option>Pet Grooming</option>
-            <option>Veterinary Checkup</option>
-            <option>Pet Training</option>
-            <option>Vaccination</option>
-            <option>Day Care</option>
-          </select>
-        </div>
-
-        <div class="flex text-center">
-          <button type="submit" 
-                  class="w-full cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-lg font-semibold shadow hover:from-blue-700 hover:to-blue-600 transition-all duration-300">
-            Submit Now
-          </button>
-        </div>
-
-      </form>
-    </div>
-
-    <!-- Right Image -->
-    <div class="flex justify-center items-center md:justify-end sm:h-full sm:w-full">
-      <img src="img/booking.jpg" alt="Booking"
-           class="rounded-2xl shadow-lg w-full md:w-[90%] h-[400px] md:h-[500px] object-cover">
-    </div>
-
-  </div>
-
-  <!-- Popup Modal -->
-  <div id="successModal" class="fixed inset-0 flex items-start justify-center bg-black/50 hidden z-50">
-    <div class="bg-white mt-[-100px] rounded-xl shadow-2xl p-6 w-[90%] sm:w-[400px] text-center 
-                transform opacity-0 translate-y-[-50px] transition-all duration-500 ease-out">
-      <div class="text-green-600 text-5xl mb-2">✅</div>
-      <h2 class="text-2xl font-semibold text-green-600 mb-2">Your order has been submitted!</h2>
-      <p class="text-gray-700 mb-4">Thank you for booking with us.</p>
-      <button id="closeModal" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
-        Close
-      </button>
     </div>
   </div>
 
-</section>
-
-
-
- <!-- Testimonials Section -->
-    <section class=" py-20 px-4 min-h-[80vh] md:min-h-screen lg:min-h-screen scroll-mt-16" id="testimonial">
-        <div class="max-w-7xl mx-auto">
-            <!-- Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    What Our <span class="text-amber-400">Clients Say</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Trusted by pet owners across America. Read their experiences with our premium pet care services.
-                </p>
-            </div>
-
-            <!-- Swiper Slider -->
-            <div class="swiper testimonialSwiper">
-                <div class="swiper-wrapper">
-                    <!-- Testimonial 1 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full">
-                            <div class="flex items-center mb-6">
-                                <img class="w-14 h-14 rounded-full object-cover border-2 border-green-200" 
-                                     src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                                     alt="Sarah Johnson">
-                                <div class="ml-4">
-                                    <h3 class="text-lg font-bold text-gray-900">Sarah Johnson</h3>
-                                    <p class="text-amber-400 text-sm">New York</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex mb-4">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                            </div>
-                            
-                            <p class="text-gray-700 mb-4 leading-relaxed">
-                                "As a busy professional in Manhattan, I was struggling to give my golden retriever the attention he needs. Pet Care's exclusive package has been a lifesaver!"
-                            </p>
-                            
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-calendar-check text-amber-400 mr-2"></i>
-                                <span>Family Package • 8 months</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full">
-                            <div class="flex items-center mb-6">
-                                <img class="w-14 h-14 rounded-full object-cover border-2 border-green-200" 
-                                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                                     alt="Michael Chen">
-                                <div class="ml-4">
-                                    <h3 class="text-lg font-bold text-gray-900">Michael Chen</h3>
-                                    <p class="text-amber-400 text-sm">California</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex mb-4">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                            </div>
-                            
-                            <p class="text-gray-700 mb-4 leading-relaxed">
-                                "Living in LA with two persian cats, I needed reliable pet care. The grooming service is exceptional! My cats look fabulous every time Lorem ipsum dolor sit amet. "
-                            </p>
-                            
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-calendar-check text-amber-400 mr-2"></i>
-                                <span>Exclusive Package • 1 year</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 3 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full">
-                            <div class="flex items-center mb-6">
-                                <img class="w-14 h-14 rounded-full object-cover border-2 border-green-200" 
-                                     src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                                     alt="Jennifer Martinez">
-                                <div class="ml-4">
-                                    <h3 class="text-lg font-bold text-gray-900">Jennifer Martinez</h3>
-                                    <p class="text-amber-400 text-sm">Texas</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex mb-4">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star-half-alt text-yellow-400"></i>
-                            </div>
-                            
-                            <p class="text-gray-700 mb-4 leading-relaxed">
-                                "With three dogs in Houston, finding quality care was challenging until we discovered Pet Care. Their family package covers all our needs perfectly."
-                            </p>
-                            
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-calendar-check text-amber-400 mr-2"></i>
-                                <span>Family Package • 6 months</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 4 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full">
-                            <div class="flex items-center mb-6">
-                                <img class="w-14 h-14 rounded-full object-cover border-2 border-green-200" 
-                                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                                     alt="David Wilson">
-                                <div class="ml-4">
-                                    <h3 class="text-lg font-bold text-gray-900">David Wilson</h3>
-                                    <p class="text-amber-400 text-sm">Florida</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex mb-4">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                            </div>
-                            
-                            <p class="text-gray-700 mb-4 leading-relaxed">
-                                "I have African grey parrots that require special care. The team at Pet Care has extensive experience with exotic pets. Highly recommended!"
-                            </p>
-                            
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-calendar-check text-amber-400 mr-2"></i>
-                                <span>Custom Package • 10 months</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 5 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full">
-                            <div class="flex items-center mb-6">
-                                <img class="w-14 h-14 rounded-full object-cover border-2 border-green-200" 
-                                     src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                                     alt="Emily Brown">
-                                <div class="ml-4">
-                                    <h3 class="text-lg font-bold text-gray-900">Emily Brown</h3>
-                                    <p class="text-amber-400 text-sm">Illinois</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex mb-4">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                            </div>
-                            
-                            <p class="text-gray-700 mb-4 leading-relaxed">
-                                "The 24/7 emergency service saved my dog's life when he had a sudden health issue. I'm forever grateful to the Pet Care team for their quick response."
-                            </p>
-                            
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-calendar-check text-amber-400 mr-2"></i>
-                                <span>Emergency Care • 2 years</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 6 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full">
-                            <div class="flex items-center mb-6">
-                                <img class="w-14 h-14 rounded-full object-cover border-2 border-green-200" 
-                                     src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
-                                     alt="Robert Taylor">
-                                <div class="ml-4">
-                                    <h3 class="text-lg font-bold text-gray-900">Robert Taylor</h3>
-                                    <p class="text-amber-400 text-sm">Washington</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex mb-4">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                            </div>
-                            
-                            <p class="text-gray-700 mb-4 leading-relaxed">
-                                "The pet training program transformed my rescue dog's behavior. The trainers are patient, knowledgeable, and truly care about the animals."
-                            </p>
-                            
-                            <div class="flex items-center text-sm text-gray-500">
-                                <i class="fas fa-calendar-check text-amber-400 mr-2"></i>
-                                <span>Training Program • 4 months</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pagination -->
-                <div class="swiper-pagination mt-8">hello</div>
-            </div>
-
-            <!-- Stats Section -->
-            <div class="mt-16  grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="text-3xl font-bold text-amber-400 mb-2">500+</div>
-                    <div class="text-gray-600">Happy Clients</div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="text-3xl font-bold text-amber-400 mb-2">98%</div>
-                    <div class="text-gray-600">Satisfaction Rate</div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="text-3xl font-bold text-amber-400 mb-2">45</div>
-                    <div class="text-gray-600">States Covered</div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="text-3xl font-bold text-amber-400 mb-2">4.9/5</div>
-                    <div class="text-gray-600">Average Rating</div>
-                </div>
-            </div>
-
-            
-              <!-- Newsletter -->
-            <div class="mt-12 pt-12 border-t border-gray-700 bg-gradient-to-r from-amber-400 to-amber-500 rounded-3xl p-12">
-                <div class="max-w-2xl mx-auto text-center">
-                    <h3 class="text-3xl font-semibold text-white mb-4">Stay Updated</h3>
-                    <p class="text-gray-700 mb-6">Subscribe to our newsletter for pet care tips and special offers</p>
-                    <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg bg-white border  text-white placeholder-gray-400 focus:outline-none focus:border-amber-500">
-                        <button class="bg-indigo-600 hover:bg-indigo-700 cursor-pointer text-white px-6 py-3 rounded-lg font-semibold transition duration-300 whitespace-nowrap">
-                            Subscribe
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-
- <!-- Footer Section -->
-
-    <footer class="bg-gray-900 text-white min-h-[80vh] md:min-h-screen lg:min-h-screen scroll-mt-16" id="contact">
-        <!-- Main Footer Content -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Company Info -->
-                <div class="lg:col-span-2">
-                    <div class="flex items-center mb-6">
-                        
-                        <span class="ml-3 text-2xl font-bold">PetCare</span>
-                    </div>
-                    <p class="text-gray-300 mb-6 leading-relaxed max-w-md">
-                        Premium pet care services across the United States. We provide exceptional veterinary care, grooming, training, and boarding services for your beloved pets.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition duration-300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-amber-500 transition duration-300">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="#" class="text-gray-300 hover:text-amber-400 transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-amber-500 text-xs mr-2"></i>
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#service" class="text-gray-300 hover:text-amber-400 transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-amber-500 text-xs mr-2"></i>
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#about" class="text-gray-300 hover:text-amber-400 transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-amber-500 text-xs mr-2"></i>
-                                About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#testimonial" class="text-gray-300 hover:text-amber-400 transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-amber-500 text-xs mr-2"></i>
-                                Testimonials
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#contact" class="text-gray-300 hover:text-amber-400 transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-amber-500 text-xs mr-2"></i>
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-amber-500 mt-1 mr-3"></i>
-                            <div>
-                                <p class="font-medium">Our Location</p>
-                                <p class="text-gray-300 text-sm">123 Pet Care Avenue<br>New York, NY 10001</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-phone text-amber-500 mt-1 mr-3"></i>
-                            <div>
-                                <p class="font-medium">Call Us</p>
-                                <p class="text-gray-300 text-sm">+1 (555) 123-4567<br>+1 (555) 987-6543</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-envelope text-amber-500 mt-1 mr-3"></i>
-                            <div>
-                                <p class="font-medium">Email Us</p>
-                                <p class="text-gray-300 text-sm">info@petcare.com<br>support@petcare.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Services Grid -->
-            <div class="mt-12 pt-12 border-t border-gray-700">
-                <h3 class="text-xl font-semibold text-center mb-8">Our Services</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="text-center p-4 bg-gray-800 rounded-lg hover:bg-amber-500 transition duration-300 cursor-pointer">
-                        <i class="fas fa-stethoscope text-2xl mb-2 text-amber-400"></i>
-                        <p class="text-sm font-medium">Veterinary Care</p>
-                    </div>
-                    <div class="text-center p-4 bg-gray-800 rounded-lg hover:bg-amber-500 transition duration-300 cursor-pointer">
-                        <i class="fas fa-cut text-2xl mb-2 text-amber-400"></i>
-                        <p class="text-sm font-medium">Grooming</p>
-                    </div>
-                    <div class="text-center p-4 bg-gray-800 rounded-lg hover:bg-amber-500 transition duration-300 cursor-pointer">
-                        <i class="fas fa-graduation-cap text-2xl mb-2 text-amber-400"></i>
-                        <p class="text-sm font-medium">Training</p>
-                    </div>
-                    <div class="text-center p-4 bg-gray-800 rounded-lg hover:bg-amber-500 transition duration-300 cursor-pointer">
-                        <i class="fas fa-home text-2xl mb-2 text-amber-400"></i>
-                        <p class="text-sm font-medium">Boarding</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bottom Footer -->
-        <div class="border-t border-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
-                        &copy; 2025 PetCare. All rights reserved.
-                    </div>
-                    <div class="flex flex-wrap justify-center gap-6 text-sm">
-                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">Terms of Service</a>
-                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">Cookie Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">Sitemap</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+  <!-- Bottom -->
+  <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-500 text-sm">
+    © 2025 All reserved by Pet House
+  </div>
+</footer>
 
 
 
 
 
+<!-- Slick JS -->
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 
- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script>
-        // Initialize Swiper js for testimonial section
-        document.addEventListener('DOMContentLoaded', function() {
-            const swiper = new Swiper('.testimonialSwiper', {
-                loop: true,
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                breakpoints: {
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 20
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 30
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 40
-                    }
-                },
-                speed: 800,
-                effect: 'slide',
-                grabCursor: true,
-            });
-
-            // CTA button interactions
-            const buttons = document.querySelectorAll('button.bg-white, button.border-2');
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    alert('Thank you for your interest! Our team will contact you soon.');
-                });
-            });
-        });
-    </script>
-
-
-    
-
- 
-
-<script>
-        // Swiper js for service section
-        document.addEventListener('DOMContentLoaded', function() {
-            const swiper = new Swiper('.service-swiper', {
-                // infinite loop
-                loop: true,
-                
-                // auto play
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false,
-                },
-                
-                // responsive break point
-                breakpoints: {
-                    // mobile
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 20
-                    },
-                    // tablet
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 30
-                    },
-                    // desktop
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 40
-                    }
-                },
-                
-                // slide speed
-                speed: 800,
-                
-                // effect
-                effect: 'slide',
-                
-                centeredSlides: false,
-
-                grabCursor: true,
-            });
-        });
-    </script>
-
-
-
-<!-- JavaScript for pop up booking submit button -->
-<script>
-  const form = document.getElementById('bookingForm');
-  const modal = document.getElementById('successModal');
-  const modalBox = modal.querySelector('div');
-  const closeModal = document.getElementById('closeModal');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Show modal
-    modal.classList.remove('hidden');
-
-    // Animate slide-down + fade-in
-    setTimeout(() => {
-      modalBox.classList.remove('opacity-0', 'translate-y-[-50px]');
-      modalBox.classList.add('opacity-100', 'translate-y-[100px]');
-    }, 50);
-  });
-
-  closeModal.addEventListener('click', () => {
-    // Animate hide
-    modalBox.classList.remove('translate-y-[100px]', 'opacity-100');
-    modalBox.classList.add('translate-y-[-50px]', 'opacity-0');
-    setTimeout(() => {
-      modal.classList.add('hidden');
-    }, 400);
-  });
-
-  // Optional: Click outside to close
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal.click();
-    }
-  });
-</script>
-
-
-
-   <script>
-    // Mobile Menu Toggle with Smooth Animation
-    const btn = document.getElementById("menu-btn");
-    const menu = document.getElementById("mobile-menu");
-
-    btn.addEventListener("click", () => {
-      if (menu.classList.contains("max-h-0")) {
-        menu.classList.remove("max-h-0");
-        menu.classList.add("max-h-screen");
-      } else {
-        menu.classList.add("max-h-0");
-        menu.classList.remove("max-h-screen");
-      }
+  <!-- rivew slide show -->
+  <script>
+    $(document).ready(function(){
+      $('.review-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        slidesToShow: 3,  // Desktop
+        slidesToScroll: 1,
+        arrows: false,
+        responsive: [
+          {
+            breakpoint: 1024, // Tablet
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 640, // Mobile
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
     });
   </script>
+
+
+
+
+ <!--slide show -->
+  <script>
+    $(document).ready(function(){
+      $('.slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 3,  // Desktop 
+        slidesToScroll: 1,
+        arrows: false,
+        responsive: [
+          {
+            breakpoint: 1024, // Tablet
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 640, // Mobile
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+    });
+  </script>
+
+    <!-- JS for Toggle -->
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+
+
+
+
 </body>
 </html>
